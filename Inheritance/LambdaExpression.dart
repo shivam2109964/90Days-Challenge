@@ -11,4 +11,10 @@ void main() {
   };
 
   value(x, y);
+
+  var value1 = (int a, int b) {
+    return a + b;
+  };
+
+  print(value1(9, 9));
 }
