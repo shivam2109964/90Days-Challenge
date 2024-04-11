@@ -1,7 +1,6 @@
 void main() {
   Dog obj = Dog();
   obj.eat();
-
 }
 
 class Animal {
