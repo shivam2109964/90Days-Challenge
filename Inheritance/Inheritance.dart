@@ -1,7 +1,7 @@
 void main() {
-  var Dog1 = Dog();
+  var Dog1 = Dog("Labrado");
   print("");
-  var Dog2 = Dog();
+  var Dog2 = Dog("Pug");
 }
 
 class Animal {
@@ -15,7 +15,8 @@ class Animal {
 class Dog extends Animal {
   String? breed;
   //Default Constructor
-  Dog() : super() {
+  Dog(String breed) : super() {
     print("Dog Default Constructor!");
+    print("The breed of Dog is $breed");  
   }
 }
