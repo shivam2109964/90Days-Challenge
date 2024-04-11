@@ -12,10 +12,10 @@ class Animal {
   }
 }
 
-class Dog extends Animal { 
+class Dog extends Animal {
   String? breed;
   //Default Constructor
-  Dog() {
+  Dog() : super() {
     print("Dog Default Constructor!");
   }
 }
