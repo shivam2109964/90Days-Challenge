@@ -2,6 +2,8 @@ void main() {
   var Dog1 = Dog("Labrado", "Red");
   print("");
   var Dog2 = Dog("Pug", "Black");
+  print("___$Dog1");
+  print("___$Dog2");
 }
 
 class Animal {
