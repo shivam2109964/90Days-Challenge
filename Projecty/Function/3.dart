@@ -7,8 +7,6 @@ void main() {
 
   List<int> fibonacciSeries = generateFibonacci(range);
 
-
-
   for (int i = 0; i < fibonacciSeries.length; i++) {
     sum += calcualteAlltheSum(fibonacciSeries[i]);
   }
