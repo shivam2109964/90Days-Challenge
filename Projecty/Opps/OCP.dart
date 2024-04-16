@@ -88,8 +88,6 @@ void main() {
   Discount discount = ApplyDiscount(discountPercentage);
   order.setDiscount(discount);
 
-  var totalItem = order.items.length;
   // Calculating total cost with discount
-  print(
-      "Total cost with discount: ${order.calculateTotal()} Total item is added $totalItem");
+  print("Total cost with discount: ${order.calculateTotal()}");
 }
