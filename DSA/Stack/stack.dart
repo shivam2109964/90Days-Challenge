@@ -13,19 +13,18 @@ class Stack<E> {
   @override
   String toString() {
     return '----Top----\n'
-        '${_storage}'
-        '\n_________';
+        '${_storage}\n'
+        '___________\n';
   }
 }
 
 void main() {
-  var stack = Stack<int>();
-
-  stack.push(3);
+  Stack stack = Stack();
+  stack.push(1);
+  stack.push(2);
   stack.push(3);
   stack.push(4);
   stack.push(5);
-  stack.push(6);
 
   print(stack);
 }
