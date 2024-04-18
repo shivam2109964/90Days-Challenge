@@ -5,9 +5,21 @@ class Node<T> {
   Node({required this.value, this.next});
 
   String toString() {
-    if(next == null) 
-    return '$value';
+    if (next == null) return '$value';
     return '$value -> ${next.toString()}';
+  }
+}
+
+class LinkedList<E> {
+  Node<E>? head;
+  Node<E>? tail;
+
+  bool get isEmpty => head == null;
+
+  @override
+  String toString() {
+    if (isEmpty) return 'Empty List';
+    return head.toString();
   }
 }
 
@@ -22,4 +34,15 @@ void main() {
   node3.next = node4;
 
   print(node1);
+
+  final linkelist = LinkedList<int>();
+  linkelist.head = node1;
+  linkelist.tail = node4;
+
+  if (linkelist.head != null) {
+    print("Head of the linked list: ${linkelist.head!.value}");
+    print("The tail of the linked list: ${linkelist.tail!.value}");
+  } else {
+    print("Linked list is empty");
+  }
 }
