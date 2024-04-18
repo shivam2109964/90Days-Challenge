@@ -1,7 +1,6 @@
 class Solution {
-  List<int> twoSum(List<int> nums, int target) {
+  List<int> twosum(List<int> nums, int target) {
     Map<int, int> numIndices = {};
-
     for (int i = 0; i < nums.length; i++) {
       int complement = target - nums[i];
       if (numIndices.containsKey(complement)) {
@@ -9,22 +8,20 @@ class Solution {
       }
       numIndices[nums[i]] = i;
     }
-
-    //if no solution is found,  return an empty list
     return [];
   }
 }
 
 void main() {
-  List<int> input = [3,2,4];
-  int target = 6;
+  List<int> nums = [2, 7, 11, 15];
+  int target = 9;
 
   Solution solution = Solution();
-  var indices = solution.twoSum(input, target);
+  var indices = solution.twosum(nums, target);
 
   if (indices.isNotEmpty) {
-    print("Indices: $indices");
+    print("Idices: $indices");
   } else {
-    print("No Solution Found");
+    print("No Solution found");
   }
 }
