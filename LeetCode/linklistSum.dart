@@ -1,5 +1,3 @@
-import 'dart:io';
-
 class Node<T> {
   T value;
   Node<T>? next;
