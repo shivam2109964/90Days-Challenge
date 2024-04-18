@@ -16,6 +16,11 @@ class LinkedList<E> {
 
   bool get isEmpty => head == null;
 
+  void push(E value) {
+    head = Node(value: value, next: head);
+    tail ?? head;
+  }
+
   @override
   String toString() {
     if (isEmpty) return 'Empty List';
@@ -34,15 +39,21 @@ void main() {
   node3.next = node4;
 
   print(node1);
-
+  print("");
   final linkelist = LinkedList<int>();
   linkelist.head = node1;
   linkelist.tail = node4;
 
   if (linkelist.head != null) {
+    print("Try to print entire linklist ${linkelist.head.toString()}");
     print("Head of the linked list: ${linkelist.head!.value}");
     print("The tail of the linked list: ${linkelist.tail!.value}");
   } else {
     print("Linked list is empty");
   }
+
+  print("");
+  print("Adding value though push (head-first insertion)");
+  linkelist.push(22);
+  print("${linkelist.head.toString()}");
 }
