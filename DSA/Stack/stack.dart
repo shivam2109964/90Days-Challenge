@@ -35,10 +35,7 @@ void main() {
   stack.push(5);
   stack.push("Gupta");
 
-
   print(stack);
-
-
 
   const list = ['S', 'M', 'O', 'K', 'E'];
   final smokeStack = Stack.of(list);

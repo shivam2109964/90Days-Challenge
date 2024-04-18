@@ -1,5 +1,5 @@
 void main() {
-  Iterable<int> numbers = [1, 3, 5];
+  Iterable<int> numbers = [1, 3, 4, 6, 5];
   print("Iterable List: ${numbers}");
   for (var number in numbers) {
     print(number);
@@ -32,4 +32,21 @@ void main() {
   print("is any Value is even: ${hasEvenValue}");
   print("is all number is positive: ${allpos}");
   print("is Every No is Even: ${isEveryNoIsEven}");
+
+  print("");
+  print("Using where() methods");
+
+  var whereMethodIterb = numbers.where((element) => element % 2 == 0);
+  var whereMethodList = listValue.where((element) => element % 2 == 0);
+
+  print(whereMethodIterb);
+  print(whereMethodList);
+
+  var takewhileCheck = listValue.takeWhile((value) => value > 2);
+  print("");
+  print(takewhileCheck);
+
+  var multipywithTwo = listValue.map((e) => e * e);
+  print("\nMap");
+  print(multipywithTwo);
 }
