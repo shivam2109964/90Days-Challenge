@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class Node<T> {
   T value;
   Node<T>? next;
@@ -20,6 +22,31 @@ class LinkedList<E> {
   void push(E value) {
     head = Node(value: value, next: head);
     tail ?? head;
+  }
+
+  //Popping from the front of the list
+  E? pop() {
+    final value = head!.value;
+    head = head!.next;
+    if (isEmpty) {
+      tail == null;
+    }
+    return value;
+  }
+
+  E? removeLast() {
+    //1
+    if (head?.next == null) return pop();
+    //2
+    var current = head;
+    while (current!.next != tail) {
+      current = current.next;
+    }
+    //3
+    final value = tail?.value;
+    tail = current;
+    tail?.next = null;
+    return value;
   }
 
   @override
@@ -57,4 +84,13 @@ void main() {
   print("Adding value though push (head-first insertion)");
   linkelist.push(22);
   print("${linkelist.head.toString()}");
+  print("");
+
+  //popping value
+  linkelist.pop();
+  print(linkelist.head.toString());
+
+  //remove from last
+  linkelist.removeLast();
+  print(linkelist.head.toString());
 }
