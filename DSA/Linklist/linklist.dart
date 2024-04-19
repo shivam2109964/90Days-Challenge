@@ -13,12 +13,13 @@ class Node<T> {
   }
 }
 
-class LinkedList<E> {
+class LinkedList<E> extends Iterable<E> {
   Node<E>? head;
   Node<E>? tail;
 
   bool get isEmpty => head == null;
 
+  //Adding a value
   void push(E value) {
     head = Node(value: value, next: head);
     tail ?? head;
@@ -34,6 +35,7 @@ class LinkedList<E> {
     return value;
   }
 
+  //Removing form the last
   E? removeLast() {
     //1
     if (head?.next == null) return pop();
@@ -49,10 +51,87 @@ class LinkedList<E> {
     return value;
   }
 
+  //Removing value form the middle of the list
+  E? removeAfter(Node<E> node) {
+    final value = node.next?.value;
+    if (node.next == tail) {
+      tail = node;
+    }
+    node.next = node.next?.next;
+    return value;
+  }
+
+  void append(E value) {
+    //1
+    if (isEmpty) {
+      push(value);
+      return;
+    }
+
+    //2
+    tail!.next = Node(value: value);
+
+    //3
+    tail = tail!.next;
+  }
+
+  Node<E>? atNode(int index) {
+    var currentNode = head;
+    var currentIndex = 0;
+
+    while (currentNode != null && currentIndex < index) {
+      currentNode = currentNode.next;
+      currentIndex += 1;
+    }
+    return currentNode;
+  }
+
+  Node<E> insertAfteer(Node<E> node, E value) {
+    //1
+    if (tail == null) {
+      append(value);
+      return tail!;
+    }
+
+    //2
+    node.next = Node(value: value, next: node.next);
+    return node.next!;
+  }
+
+  @override
+  Iterator<E> get iterator => _LinkedListIterable(this);
+
   @override
   String toString() {
     if (isEmpty) return 'Empty List';
     return head.toString();
+  }
+}
+
+class _LinkedListIterable<E> implements Iterator<E> {
+  _LinkedListIterable(LinkedList<E> list) : _list = list;
+  final LinkedList<E> _list;
+
+  Node<E>? _currentNode;
+
+  @override
+  E get current => _currentNode!.value;
+
+  bool _firstPass = true;
+
+  @override
+  bool moveNext() {
+    //1
+    if (_list.isEmpty) return false;
+    //2
+    if (_firstPass) {
+      _currentNode = _list.head;
+      _firstPass = false;
+    } else {
+      _currentNode = _currentNode?.next;
+    }
+    //3
+    return _currentNode != null;
   }
 }
 
@@ -93,4 +172,12 @@ void main() {
   //remove from last
   linkelist.removeLast();
   print(linkelist.head.toString());
+
+  //Remove from the middle of the list
+  linkelist.removeAfter(linkelist.atNode(0)!);
+  print(linkelist.head.toString());
+  print("");
+  for (final element in linkelist) {
+    print(element);
+  }
 }
