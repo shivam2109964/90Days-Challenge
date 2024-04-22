@@ -1,24 +1,18 @@
 package Projecty.Que.Java;
-
+import java.util.*;
 
 public class AddTwoSum {
 
   public static void main(String[] args) {
-    // Initial values
-    int num1 = 123;
-    int num2 = 321;
+    Scanner input = new Scanner(System.in);
+    System.out.println("Enter the first number");
+    int value = input.nextInt();
 
-    System.out.println("Before swapping:");
-    System.out.println("num1: " + num1);
-    System.out.println("num2: " + num2);
+    System.out.println("Enter the second number");
+    int value1 = input.nextInt();
 
-    // Swapping logic using a temporary variable
-    int temp = num1;
-    num1 = num2;
-    num2 = temp;
-
-    System.out.println("\nAfter swapping:");
-    System.out.println("num1: " + num1);
-    System.out.println("num2: " + num2);
-}
+    int sum = value + value1;
+    System.out.println("The result is: " + sum);
+    input.close();
+  }
 }
