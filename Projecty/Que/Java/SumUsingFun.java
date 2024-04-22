@@ -1,4 +1,5 @@
 package Projecty.Que.Java;
+
 import java.util.*;
 
 public class SumUsingFun {
@@ -17,7 +18,6 @@ public class SumUsingFun {
     int value2 = input.nextInt();
     input.close();
 
-    
     int result = addNumber(value1, value2);
     System.out.println(result);
   }
