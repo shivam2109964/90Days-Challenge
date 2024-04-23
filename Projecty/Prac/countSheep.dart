@@ -1,7 +1,5 @@
 String countSheep(int numb) {
-  if(numb == 0){
-    return "";
-  }
+  
   String sheepCount = "";
   for (int i = 1; i <= numb; i++) {
     sheepCount += "$i sheep...";
@@ -9,7 +7,15 @@ String countSheep(int numb) {
   return sheepCount;
 }
 
+//One more approach like 
+String countSheep1(numb) => List.generate(numb, (int i) => "${i + 1} sheep...").join();
+
+//
+
 void main() {
   var resutlCheck = countSheep(0);
   print(resutlCheck);
+
+  var resultCheck1 = countSheep1(4);
+  print("---> $resultCheck1");
 }
