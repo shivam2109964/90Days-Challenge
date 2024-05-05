@@ -26,6 +26,27 @@ class Stack<E> {
     }
   }
 
+  //Check Parentheses
+  bool checkParentheses(String text) {
+    var stack = Stack<int>();
+
+    final open = '('.codeUnitAt(0);
+    final close = ')'.codeUnitAt(0);
+
+    for (int codeUnit in text.codeUnits) {
+      if (codeUnit == open) {
+        stack.push(codeUnit);
+      } else if (codeUnit == close) {
+        if (stack.isEmpty) {
+          return false;
+        } else {
+          stack.pop();
+        }
+      }
+    }
+    return stack.isEmpty;
+  }
+
   @override
   String toString() {
     return '---TOP---\n'
@@ -76,5 +97,7 @@ void main() {
   print(smokeStack);
 
   stack.printInReverse(list);
-  
+
+  var paren = stack.checkParentheses("(hello world");
+  print(paren);
 }
