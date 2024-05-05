@@ -5,7 +5,6 @@ class Stack<E> {
   void push(E element) => _storage.add(element);
   E pop() => _storage.removeLast();
 
-
   //Non-Essential Opertaions
   E get peek => _storage.last;
 
@@ -15,6 +14,18 @@ class Stack<E> {
   //Creating a stack from an Iterable
   Stack.of(Iterable<E> element) : _storage = List<E>.of(element);
 
+  //Apply reverse Stack
+  void printInReverse<E>(List<E> list) {
+    var stack = Stack<E>();
+
+    for (E value in list) {
+      stack.push(value);
+    }
+    while (stack.isNotEmpty) {
+      print(stack.pop());
+    }
+  }
+
   @override
   String toString() {
     return '---TOP---\n'
@@ -23,7 +34,7 @@ class Stack<E> {
   }
 }
 
-void main(){
+void main() {
   Stack stack = Stack();
   stack.push(1);
   stack.push(2);
@@ -56,11 +67,14 @@ void main(){
   print(test3);
 
   //Testing Iterable Stack
-  const list = ['S','M','O','K','E'];
+  const list = ['S', 'M', 'O', 'K', 'E'];
   final smokeStack = Stack.of(list);
   print(smokeStack);
   smokeStack.pop();
   print(smokeStack);
   smokeStack.push("x");
   print(smokeStack);
+
+  stack.printInReverse(list);
+  
 }
